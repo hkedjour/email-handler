@@ -1,0 +1,1957 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GenericResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VersionNumber">
+        <s:complexType />
+      </s:element>
+      <s:element name="VersionNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VersionNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsLicensed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="versionNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsLicensedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsLicensedResult" type="tns:LicenseResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LicenseResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Trial" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Expiration" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetItemCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetItemCountResult" type="tns:CountResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CountResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContactCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CalendarCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaskCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteContactResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteContactEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteContactExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteContactExResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="item" type="tns:ExContactItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExContactItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="val" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddContactResult" type="tns:AddContactResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddContactResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddContactEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerUsername" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="item" type="tns:ExContactItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddContactExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddContactExResult" type="tns:AddContactResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestContactListEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerUsername" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestContactListExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestContactListExResult" type="tns:ContactListRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ContactListRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfContactMetaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfContactMetaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContactMetaInfo" type="tns:ContactMetaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContactMetaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RequestContactList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestContactListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestContactListResult" type="tns:ContactListRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetContactResult" type="tns:GetContactResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetContactResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExContact" type="tns:ExContactItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetContactEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetContactExResult" type="tns:GetContactResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCalendar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCalendarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCalendarResult" type="tns:GetCalendarResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetCalendarResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExCalendar" type="tns:ExCalendarItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExCalendarItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="val" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCalendarEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCalendarExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCalendarExResult" type="tns:GetCalendarResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestCalendarList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestCalendarListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestCalendarListResult" type="tns:CalendarListRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CalendarListRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfCalendarMetaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCalendarMetaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CalendarMetaInfo" type="tns:CalendarMetaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CalendarMetaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RequestCalendarListEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestCalendarListExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestCalendarListExResult" type="tns:CalendarListRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCalendar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCalendarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCalendarResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCalendarEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCalendarExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCalendarExResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCalendar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="item" type="tns:ExCalendarItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCalendarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCalendarResult" type="tns:AddCalendarResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddCalendarResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddCalendarEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="item" type="tns:ExCalendarItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCalendarExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCalendarExResult" type="tns:AddCalendarResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteTaskResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTaskEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTaskExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteTaskExResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="item" type="tns:ExTaskItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExTaskItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="val" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddTaskResult" type="tns:AddTaskResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddTaskResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddTaskEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="item" type="tns:ExTaskItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTaskExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddTaskExResult" type="tns:AddTaskResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestTaskList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestTaskListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestTaskListResult" type="tns:TaskListRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TaskListRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfTaskMetaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTaskMetaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaskMetaInfo" type="tns:TaskMetaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaskMetaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RequestTaskListEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestTaskListExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestTaskListExResult" type="tns:TaskListRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTaskResult" type="tns:GetTaskResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetTaskResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExTask" type="tns:ExTaskItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTaskEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaskExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTaskExResult" type="tns:GetTaskResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteNote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteNoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteNoteResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteNoteEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteNoteExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteNoteExResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="item" type="tns:ExNoteItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExNoteItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="val" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddNoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddNoteResult" type="tns:AddNoteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddNoteResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddNoteEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="item" type="tns:ExNoteItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNoteExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddNoteExResult" type="tns:AddNoteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestNoteList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestNoteListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestNoteListResult" type="tns:NoteListRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="NoteListRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfNoteMetaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfNoteMetaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NoteMetaInfo" type="tns:NoteMetaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NoteMetaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RequestNoteListEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestNoteListExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestNoteListExResult" type="tns:NoteListRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNoteResult" type="tns:GetNoteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetNoteResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExNote" type="tns:ExNoteItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetNoteEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNoteExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNoteExResult" type="tns:GetNoteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserFolders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserFoldersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserFoldersResult" type="tns:ArrayOfFolder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFolder">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Folder" type="tns:Folder" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Folder">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnerName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemType" type="tns:FolderItemType" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReadOnly" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="FolderItemType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Appointment" />
+          <s:enumeration value="Contact" />
+          <s:enumeration value="Task" />
+          <s:enumeration value="Note" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="FreeBusy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="lookup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FreeBusyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FreeBusyResult" type="tns:ArrayOfDateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDateTime">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dateTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="VersionNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:VersionNumber" />
+  </wsdl:message>
+  <wsdl:message name="VersionNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:VersionNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsLicensedSoapIn">
+    <wsdl:part name="parameters" element="tns:IsLicensed" />
+  </wsdl:message>
+  <wsdl:message name="IsLicensedSoapOut">
+    <wsdl:part name="parameters" element="tns:IsLicensedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItemCount" />
+  </wsdl:message>
+  <wsdl:message name="GetItemCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteContact" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactExSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteContactEx" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactExSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteContactExResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddContactSoapIn">
+    <wsdl:part name="parameters" element="tns:AddContact" />
+  </wsdl:message>
+  <wsdl:message name="AddContactSoapOut">
+    <wsdl:part name="parameters" element="tns:AddContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddContactExSoapIn">
+    <wsdl:part name="parameters" element="tns:AddContactEx" />
+  </wsdl:message>
+  <wsdl:message name="AddContactExSoapOut">
+    <wsdl:part name="parameters" element="tns:AddContactExResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestContactListExSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestContactListEx" />
+  </wsdl:message>
+  <wsdl:message name="RequestContactListExSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestContactListExResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestContactListSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestContactList" />
+  </wsdl:message>
+  <wsdl:message name="RequestContactListSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestContactListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContact" />
+  </wsdl:message>
+  <wsdl:message name="GetContactSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContactEx" />
+  </wsdl:message>
+  <wsdl:message name="GetContactExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCalendarSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCalendar" />
+  </wsdl:message>
+  <wsdl:message name="GetCalendarSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCalendarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCalendarExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCalendarEx" />
+  </wsdl:message>
+  <wsdl:message name="GetCalendarExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCalendarExResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestCalendarListSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestCalendarList" />
+  </wsdl:message>
+  <wsdl:message name="RequestCalendarListSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestCalendarListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestCalendarListExSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestCalendarListEx" />
+  </wsdl:message>
+  <wsdl:message name="RequestCalendarListExSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestCalendarListExResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCalendarSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCalendar" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCalendarSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCalendarResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCalendarExSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCalendarEx" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCalendarExSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCalendarExResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCalendarSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCalendar" />
+  </wsdl:message>
+  <wsdl:message name="AddCalendarSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCalendarResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCalendarExSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCalendarEx" />
+  </wsdl:message>
+  <wsdl:message name="AddCalendarExSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCalendarExResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTask" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTaskExSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTaskEx" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTaskExSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTaskExResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTask" />
+  </wsdl:message>
+  <wsdl:message name="AddTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTaskExSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTaskEx" />
+  </wsdl:message>
+  <wsdl:message name="AddTaskExSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTaskExResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestTaskListSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestTaskList" />
+  </wsdl:message>
+  <wsdl:message name="RequestTaskListSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestTaskListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestTaskListExSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestTaskListEx" />
+  </wsdl:message>
+  <wsdl:message name="RequestTaskListExSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestTaskListExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTask" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaskEx" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaskExResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteNoteSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteNote" />
+  </wsdl:message>
+  <wsdl:message name="DeleteNoteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteNoteExSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteNoteEx" />
+  </wsdl:message>
+  <wsdl:message name="DeleteNoteExSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteNoteExResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNoteSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNote" />
+  </wsdl:message>
+  <wsdl:message name="AddNoteSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNoteExSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNoteEx" />
+  </wsdl:message>
+  <wsdl:message name="AddNoteExSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNoteExResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestNoteListSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestNoteList" />
+  </wsdl:message>
+  <wsdl:message name="RequestNoteListSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestNoteListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestNoteListExSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestNoteListEx" />
+  </wsdl:message>
+  <wsdl:message name="RequestNoteListExSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestNoteListExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNoteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNote" />
+  </wsdl:message>
+  <wsdl:message name="GetNoteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNoteExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNoteEx" />
+  </wsdl:message>
+  <wsdl:message name="GetNoteExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNoteExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserFoldersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserFolders" />
+  </wsdl:message>
+  <wsdl:message name="GetUserFoldersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="FreeBusySoapIn">
+    <wsdl:part name="parameters" element="tns:FreeBusy" />
+  </wsdl:message>
+  <wsdl:message name="FreeBusySoapOut">
+    <wsdl:part name="parameters" element="tns:FreeBusyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="svcOutlookAddinSoap">
+    <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns true or false depending on if the login and password is correct</wsdl:documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VersionNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the version of SmarterMail</wsdl:documentation>
+      <wsdl:input message="tns:VersionNumberSoapIn" />
+      <wsdl:output message="tns:VersionNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsLicensed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns true or false depending on if the domain has a license key for the Sync Tool</wsdl:documentation>
+      <wsdl:input message="tns:IsLicensedSoapIn" />
+      <wsdl:output message="tns:IsLicensedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a count of each type of item</wsdl:documentation>
+      <wsdl:input message="tns:GetItemCountSoapIn" />
+      <wsdl:output message="tns:GetItemCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a contact from smartermail</wsdl:documentation>
+      <wsdl:input message="tns:DeleteContactSoapIn" />
+      <wsdl:output message="tns:DeleteContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContactEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a contact from smartermail</wsdl:documentation>
+      <wsdl:input message="tns:DeleteContactExSoapIn" />
+      <wsdl:output message="tns:DeleteContactExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a contact to SmarterMail</wsdl:documentation>
+      <wsdl:input message="tns:AddContactSoapIn" />
+      <wsdl:output message="tns:AddContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContactEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a contact to SmarterMail</wsdl:documentation>
+      <wsdl:input message="tns:AddContactExSoapIn" />
+      <wsdl:output message="tns:AddContactExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestContactListEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of guids and their hashes corresponding to all contacts</wsdl:documentation>
+      <wsdl:input message="tns:RequestContactListExSoapIn" />
+      <wsdl:output message="tns:RequestContactListExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestContactList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of guids and their hashes corresponding to all contacts</wsdl:documentation>
+      <wsdl:input message="tns:RequestContactListSoapIn" />
+      <wsdl:output message="tns:RequestContactListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContact">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a contact based on guid</wsdl:documentation>
+      <wsdl:input message="tns:GetContactSoapIn" />
+      <wsdl:output message="tns:GetContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a contact based on guid</wsdl:documentation>
+      <wsdl:input message="tns:GetContactExSoapIn" />
+      <wsdl:output message="tns:GetContactExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a calendar based on guid</wsdl:documentation>
+      <wsdl:input message="tns:GetCalendarSoapIn" />
+      <wsdl:output message="tns:GetCalendarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendarEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a calendar based on guid</wsdl:documentation>
+      <wsdl:input message="tns:GetCalendarExSoapIn" />
+      <wsdl:output message="tns:GetCalendarExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestCalendarList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of guids and their hashes corresponding to all calendar events</wsdl:documentation>
+      <wsdl:input message="tns:RequestCalendarListSoapIn" />
+      <wsdl:output message="tns:RequestCalendarListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestCalendarListEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of guids and their hashes corresponding to all calendar events</wsdl:documentation>
+      <wsdl:input message="tns:RequestCalendarListExSoapIn" />
+      <wsdl:output message="tns:RequestCalendarListExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCalendar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a calendar from smartermail</wsdl:documentation>
+      <wsdl:input message="tns:DeleteCalendarSoapIn" />
+      <wsdl:output message="tns:DeleteCalendarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCalendarEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a calendar from smartermail</wsdl:documentation>
+      <wsdl:input message="tns:DeleteCalendarExSoapIn" />
+      <wsdl:output message="tns:DeleteCalendarExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCalendar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a calendar to SmarterMail</wsdl:documentation>
+      <wsdl:input message="tns:AddCalendarSoapIn" />
+      <wsdl:output message="tns:AddCalendarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCalendarEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a calendar to SmarterMail</wsdl:documentation>
+      <wsdl:input message="tns:AddCalendarExSoapIn" />
+      <wsdl:output message="tns:AddCalendarExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a task from smartermail</wsdl:documentation>
+      <wsdl:input message="tns:DeleteTaskSoapIn" />
+      <wsdl:output message="tns:DeleteTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a task from smartermail</wsdl:documentation>
+      <wsdl:input message="tns:DeleteTaskExSoapIn" />
+      <wsdl:output message="tns:DeleteTaskExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTask">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a task to SmarterMail</wsdl:documentation>
+      <wsdl:input message="tns:AddTaskSoapIn" />
+      <wsdl:output message="tns:AddTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTaskEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a task to SmarterMail</wsdl:documentation>
+      <wsdl:input message="tns:AddTaskExSoapIn" />
+      <wsdl:output message="tns:AddTaskExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestTaskList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of guids and their hashes corresponding to all tasks</wsdl:documentation>
+      <wsdl:input message="tns:RequestTaskListSoapIn" />
+      <wsdl:output message="tns:RequestTaskListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestTaskListEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of guids and their hashes corresponding to all tasks</wsdl:documentation>
+      <wsdl:input message="tns:RequestTaskListExSoapIn" />
+      <wsdl:output message="tns:RequestTaskListExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTask">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a task based on guid</wsdl:documentation>
+      <wsdl:input message="tns:GetTaskSoapIn" />
+      <wsdl:output message="tns:GetTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a task based on guid</wsdl:documentation>
+      <wsdl:input message="tns:GetTaskExSoapIn" />
+      <wsdl:output message="tns:GetTaskExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a note from smartermail</wsdl:documentation>
+      <wsdl:input message="tns:DeleteNoteSoapIn" />
+      <wsdl:output message="tns:DeleteNoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNoteEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a note from smartermail</wsdl:documentation>
+      <wsdl:input message="tns:DeleteNoteExSoapIn" />
+      <wsdl:output message="tns:DeleteNoteExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a note to SmarterMail</wsdl:documentation>
+      <wsdl:input message="tns:AddNoteSoapIn" />
+      <wsdl:output message="tns:AddNoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNoteEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a note to SmarterMail</wsdl:documentation>
+      <wsdl:input message="tns:AddNoteExSoapIn" />
+      <wsdl:output message="tns:AddNoteExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestNoteList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of guids and their hashes corresponding to all notes</wsdl:documentation>
+      <wsdl:input message="tns:RequestNoteListSoapIn" />
+      <wsdl:output message="tns:RequestNoteListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestNoteListEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of guids and their hashes corresponding to all notes</wsdl:documentation>
+      <wsdl:input message="tns:RequestNoteListExSoapIn" />
+      <wsdl:output message="tns:RequestNoteListExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a note based on guid</wsdl:documentation>
+      <wsdl:input message="tns:GetNoteSoapIn" />
+      <wsdl:output message="tns:GetNoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNoteEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a note based on guid</wsdl:documentation>
+      <wsdl:input message="tns:GetNoteExSoapIn" />
+      <wsdl:output message="tns:GetNoteExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFolders">
+      <wsdl:input message="tns:GetUserFoldersSoapIn" />
+      <wsdl:output message="tns:GetUserFoldersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FreeBusy">
+      <wsdl:input message="tns:FreeBusySoapIn" />
+      <wsdl:output message="tns:FreeBusySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="svcOutlookAddinSoap" type="tns:svcOutlookAddinSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VersionNumber">
+      <soap:operation soapAction="http://tempuri.org/VersionNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsLicensed">
+      <soap:operation soapAction="http://tempuri.org/IsLicensed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemCount">
+      <soap:operation soapAction="http://tempuri.org/GetItemCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap:operation soapAction="http://tempuri.org/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContactEx">
+      <soap:operation soapAction="http://tempuri.org/DeleteContactEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <soap:operation soapAction="http://tempuri.org/AddContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContactEx">
+      <soap:operation soapAction="http://tempuri.org/AddContactEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestContactListEx">
+      <soap:operation soapAction="http://tempuri.org/RequestContactListEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestContactList">
+      <soap:operation soapAction="http://tempuri.org/RequestContactList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContact">
+      <soap:operation soapAction="http://tempuri.org/GetContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactEx">
+      <soap:operation soapAction="http://tempuri.org/GetContactEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendar">
+      <soap:operation soapAction="http://tempuri.org/GetCalendar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendarEx">
+      <soap:operation soapAction="http://tempuri.org/GetCalendarEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestCalendarList">
+      <soap:operation soapAction="http://tempuri.org/RequestCalendarList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestCalendarListEx">
+      <soap:operation soapAction="http://tempuri.org/RequestCalendarListEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCalendar">
+      <soap:operation soapAction="http://tempuri.org/DeleteCalendar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCalendarEx">
+      <soap:operation soapAction="http://tempuri.org/DeleteCalendarEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCalendar">
+      <soap:operation soapAction="http://tempuri.org/AddCalendar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCalendarEx">
+      <soap:operation soapAction="http://tempuri.org/AddCalendarEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <soap:operation soapAction="http://tempuri.org/DeleteTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskEx">
+      <soap:operation soapAction="http://tempuri.org/DeleteTaskEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTask">
+      <soap:operation soapAction="http://tempuri.org/AddTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTaskEx">
+      <soap:operation soapAction="http://tempuri.org/AddTaskEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestTaskList">
+      <soap:operation soapAction="http://tempuri.org/RequestTaskList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestTaskListEx">
+      <soap:operation soapAction="http://tempuri.org/RequestTaskListEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTask">
+      <soap:operation soapAction="http://tempuri.org/GetTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskEx">
+      <soap:operation soapAction="http://tempuri.org/GetTaskEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNote">
+      <soap:operation soapAction="http://tempuri.org/DeleteNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNoteEx">
+      <soap:operation soapAction="http://tempuri.org/DeleteNoteEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <soap:operation soapAction="http://tempuri.org/AddNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNoteEx">
+      <soap:operation soapAction="http://tempuri.org/AddNoteEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestNoteList">
+      <soap:operation soapAction="http://tempuri.org/RequestNoteList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestNoteListEx">
+      <soap:operation soapAction="http://tempuri.org/RequestNoteListEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNote">
+      <soap:operation soapAction="http://tempuri.org/GetNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNoteEx">
+      <soap:operation soapAction="http://tempuri.org/GetNoteEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFolders">
+      <soap:operation soapAction="http://tempuri.org/GetUserFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FreeBusy">
+      <soap:operation soapAction="http://tempuri.org/FreeBusy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="svcOutlookAddinSoap12" type="tns:svcOutlookAddinSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VersionNumber">
+      <soap12:operation soapAction="http://tempuri.org/VersionNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsLicensed">
+      <soap12:operation soapAction="http://tempuri.org/IsLicensed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemCount">
+      <soap12:operation soapAction="http://tempuri.org/GetItemCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap12:operation soapAction="http://tempuri.org/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContactEx">
+      <soap12:operation soapAction="http://tempuri.org/DeleteContactEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <soap12:operation soapAction="http://tempuri.org/AddContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContactEx">
+      <soap12:operation soapAction="http://tempuri.org/AddContactEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestContactListEx">
+      <soap12:operation soapAction="http://tempuri.org/RequestContactListEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestContactList">
+      <soap12:operation soapAction="http://tempuri.org/RequestContactList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContact">
+      <soap12:operation soapAction="http://tempuri.org/GetContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactEx">
+      <soap12:operation soapAction="http://tempuri.org/GetContactEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendar">
+      <soap12:operation soapAction="http://tempuri.org/GetCalendar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendarEx">
+      <soap12:operation soapAction="http://tempuri.org/GetCalendarEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestCalendarList">
+      <soap12:operation soapAction="http://tempuri.org/RequestCalendarList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestCalendarListEx">
+      <soap12:operation soapAction="http://tempuri.org/RequestCalendarListEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCalendar">
+      <soap12:operation soapAction="http://tempuri.org/DeleteCalendar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCalendarEx">
+      <soap12:operation soapAction="http://tempuri.org/DeleteCalendarEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCalendar">
+      <soap12:operation soapAction="http://tempuri.org/AddCalendar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCalendarEx">
+      <soap12:operation soapAction="http://tempuri.org/AddCalendarEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <soap12:operation soapAction="http://tempuri.org/DeleteTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskEx">
+      <soap12:operation soapAction="http://tempuri.org/DeleteTaskEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTask">
+      <soap12:operation soapAction="http://tempuri.org/AddTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTaskEx">
+      <soap12:operation soapAction="http://tempuri.org/AddTaskEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestTaskList">
+      <soap12:operation soapAction="http://tempuri.org/RequestTaskList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestTaskListEx">
+      <soap12:operation soapAction="http://tempuri.org/RequestTaskListEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTask">
+      <soap12:operation soapAction="http://tempuri.org/GetTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskEx">
+      <soap12:operation soapAction="http://tempuri.org/GetTaskEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNote">
+      <soap12:operation soapAction="http://tempuri.org/DeleteNote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNoteEx">
+      <soap12:operation soapAction="http://tempuri.org/DeleteNoteEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <soap12:operation soapAction="http://tempuri.org/AddNote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNoteEx">
+      <soap12:operation soapAction="http://tempuri.org/AddNoteEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestNoteList">
+      <soap12:operation soapAction="http://tempuri.org/RequestNoteList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestNoteListEx">
+      <soap12:operation soapAction="http://tempuri.org/RequestNoteListEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNote">
+      <soap12:operation soapAction="http://tempuri.org/GetNote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNoteEx">
+      <soap12:operation soapAction="http://tempuri.org/GetNoteEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFolders">
+      <soap12:operation soapAction="http://tempuri.org/GetUserFolders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FreeBusy">
+      <soap12:operation soapAction="http://tempuri.org/FreeBusy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="svcOutlookAddin">
+    <wsdl:port name="svcOutlookAddinSoap" binding="tns:svcOutlookAddinSoap">
+      <soap:address location="https://yourserver/Services/svcOutlookAddin.asmx" />
+    </wsdl:port>
+    <wsdl:port name="svcOutlookAddinSoap12" binding="tns:svcOutlookAddinSoap12">
+      <soap12:address location="https://yourserver/Services/svcOutlookAddin.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
